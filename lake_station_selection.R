@@ -15,15 +15,6 @@ library(lubridate)
 library(beepr)
 library(wesanderson)
 
-# scales::show_col(
-#   wes_palette(
-#     name = 'Royal1',
-#     n = 4,
-#     type = c('continuous')
-#   ) #%>% as.vector()
-# )
-
-
 # Set working directory
 setwd('/Users/natalie/Documents/select_data/') 
 
