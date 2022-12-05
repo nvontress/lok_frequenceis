@@ -9,7 +9,7 @@ library(tidyverse)
 library(sf)
 library(janitor)
 library(terra)
-library(exactextractr)
+# library(exactextractr)
 library(beepr)
 
 # Set Working Directory
@@ -126,7 +126,7 @@ roi_tibble %>%
 # Calculate average height of water over sill
 calc_h <- function(day,flow_tib = s308_usgs) {
   flow_tib %>% filter(date(dateTime) == day) %>% pull(gauge_ft) %>% mean(na.rm = T) -> avg_gauge
-  return(avg_gauge - 9.1) # 9.1 is the sill height
+  return(avg_gauge - 9.1) # 9.1 is the sill height -- cited in manuscript
 }
 
 roi_tibble %>%
