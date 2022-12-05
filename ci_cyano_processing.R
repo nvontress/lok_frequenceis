@@ -86,9 +86,12 @@ for(i in 2:nlyr(stack_daily_unscaled_cropped)) {
 }
 beep(2)
 
+# Check layers -- should be TRUE
+nlyr(stack_daily_unscaled_cropped) == nlyr(stack_daily_scaled)
+
 ## Weekly
 # Create an empty raster stack and progress bar
-stack_weekly_scaled <- raster::stack(stack_weekly_unscaled_cropped[[1]])
+stack_weekly_scaled <- scale_images(stack_weekly_unscaled_cropped[[1]])
 pb = txtProgressBar(min = 0, 
                     max = nlyr(stack_weekly_unscaled_cropped)-1, 
                     initial = 0,
@@ -109,7 +112,19 @@ for(i in 2:nlyr(stack_weekly_unscaled_cropped)) {
 }
 beep(2)
 
+# Check layers -- should be TRUE
+nlyr(stack_weekly_unscaled_cropped) == nlyr(stack_weekly_scaled)
+
 # Wrap files for later use
+stack_daily_unscaled_cropped_w <- wrap(stack_daily_unscaled_cropped)
+stack_weekly_unscaled_cropped_w<- wrap(stack_weekly_unscaled_cropped)
+
+stack_daily_scaled_w <- wrap(stack_daily_scaled)
+stack_weekly_scaled_w <- wrap(stack_weekly_scaled)
+
+# Save environment ----
+rm(image_i,image_i_scaled,i,pb)
+save.image("~/Documents/lok_frequencies/ci_cyano_processing_workspace.RData")
 
 # # Process images - Tomlinson and Seegers ---- 
 # 
