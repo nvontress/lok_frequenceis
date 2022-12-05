@@ -10,9 +10,7 @@ library(sf)
 library(janitor)
 library(terra)
 library(exactextractr)
-library(lubridate)
 library(beepr)
-# library(caret)
 
 # Set Working Directory
 # setwd('/Volumes/Hard Drive/Data/') # for hard drive
@@ -21,9 +19,6 @@ setwd('/Users/natalie/Documents/select_data/') # for data on laptop
 
 # Load work space - last updated 7/8/21 -- goes to modeling (round 2)
 # load("~/Documents/R projects/olci_ci/roi_analysis_ci_cyano_workspace.RData")
-
-# Set roi
-# roi <- 1000
 
 # Read in data ----
 
