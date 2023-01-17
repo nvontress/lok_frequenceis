@@ -12,10 +12,6 @@ library(ggpubr)
 library(modelr)
 library(dbhydroR)
 
-
-# Set Working Directory
-setwd('/Users/natalie/Documents/select_data')
-
 # Read in data ----
 
 # Load ci_cyano_processing environment
