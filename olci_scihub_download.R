@@ -20,7 +20,7 @@ library(beepr)
 # Retrieve data ----
 
 # Log in to SciHub
-login_CopHub(username = 'ENTER USERNAME') # Enter password to pop-up
+login_CopHub(username = 'USER NAME HERE') # Enter password to pop-up
 
 # Set path to download
 set_archive('OLCI_LFR_zipped', create = T)
@@ -56,23 +56,23 @@ records %>% filter(sensor_id == 'OLCI',
                    product_type == 'OL_2_LFR___',
                    str_detect(record_id,'S3A') == T,
                    str_detect(record_id,'2520') == T)  %>%
-  pull(start_time) %>% as.Date() %>% unique() -> s3a_dates_verified
+  pull(start_time) %>% as.Date() %>% unique() -> s3a_dates
 
 records %>% filter(sensor_id == 'OLCI',
                    product_type == 'OL_2_LFR___',
                    str_detect(record_id,'S3B') == T,
                    str_detect(record_id,'2520') == T) %>% 
-  pull(start_time) %>% as.Date %>% unique() -> s3b_dates_verified
+  pull(start_time) %>% as.Date %>% unique() -> s3b_dates
 
 records %>% filter(sensor_id == 'OLCI',
                    product_type == 'OL_2_LFR___',
                    str_detect(record_id,'S3A') == T | 
                      str_detect(record_id,'S3B') == T,
                    str_detect(record_id,'2520') == T) %>% 
-  pull(start_time) %>% as.Date() %>% unique() -> s3a_s3b_dates_verified
+  pull(start_time) %>% as.Date() %>% unique() -> s3a_s3b_dates
 
 # Save workspace -- Last saved 1/20 to pull S3A AND S3B flyover dates
-# save.image("~/sentinel_records_workspace_verify.RData")
+save.image("~/sentinel_records_workspace.RData")
 
 write_csv(x = records, file = '~/OLCI_LFR_Records.csv') 
 
