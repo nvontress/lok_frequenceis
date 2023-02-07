@@ -1128,6 +1128,14 @@ roi_tile_vals <- generate_tile_tibble(roi_vals_weekly,roi)
 #           mutate(se_tile_vals,quad = 'Southeast Quadrant')) %>%
 #   plot_percent_bloom() + facet_wrap(~quad)
 
+# Wrap all relevent spatvectors
+lake_bound_w <- wrap(lake_bound)
+nw_quad_w <- wrap(nw_quad)
+ne_quad_w <- wrap(ne_quad)
+sw_quad_w <- wrap(sw_quad)
+se_quad_w <- wrap(se_quad)
+roi_w <- wrap(roi)
+
 # Save work space - last saved 08/10/22 to check all calculations ---
 save.image("~/Documents/lok_frequencies/frequency_analysis_ci_cyano_workspace.RData")
 
