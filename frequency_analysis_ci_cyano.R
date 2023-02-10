@@ -3,7 +3,7 @@
 # Frequency = number of classified pixels across the time range and boundary / (the total number of lake pixels in the boundary * the number of images in the time span) * 100 
 
 # Set up work space ----
-# Clear environmentx
+# Clear environment
 rm(list = ls())
 
 # Load packages
@@ -87,7 +87,8 @@ read_sf('dbhydro_stations/DBHYDRO_SITE_STATION.shp') %>% clean_names() %>%
   st_transform(crs = epsg) %>% vect() -> lake_station_coords
 
 # ... and S308 coords
-s308c_coords <- read_sf('dbhydro_stations/DBHYDRO_SITE_STATION.shp') %>% clean_names() %>%
+s308c_coords <- read_sf('dbhydro_stations/DBHYDRO_SITE_STATION.shp') %>% 
+  clean_names() %>%
   filter(station == 'S308C',
          activity_t == 'Chemistry',
          activity_s == 'Surface Water Grab') %>%
@@ -1135,6 +1136,9 @@ ne_quad_w <- wrap(ne_quad)
 sw_quad_w <- wrap(sw_quad)
 se_quad_w <- wrap(se_quad)
 roi_w <- wrap(roi)
+
+lake_station_coords_w <- wrap(lake_station_coords)
+# s308c_coords_w <- wrap(s308c_coords)
 
 # Save work space - last saved 08/10/22 to check all calculations ---
 save.image("~/Documents/lok_frequencies/frequency_analysis_ci_cyano_workspace.RData")
