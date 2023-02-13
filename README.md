@@ -1,5 +1,5 @@
 # lok_frequencies
-_NOTE_ - This code was re-written in terra to run much more quickly, but is not the code actually used for the manuscript. The original code used for the manuscript can be found in nvontress/olci_ci_copy, which also contains scripts for creating maps. Due to the changes made, there are extremely minor differences in the results each repo yields. 
+_NOTE_ - This code was re-written in terra to run much more quickly, but is not the code actually used for the manuscript. The original code used for the manuscript can be found in nvontress/olci_ci_copy, which also contains scripts for creating maps. Feel free to reach out with any questions and cite my repositories if you use any code herein.
 
 #### Running the code
 1. __ci_cyano_processing.R__: This script is the first step of the code, used to scale the digital numbers of the Cyan data product to CI<sub>cyano</sub>. This code also saves the environment so the terra objects can be accessed in later steps. Data inputs include CI<sub>cyano</sub> imagery from https://oceancolor.gsfc.nasa.gov/projects/cyan/ and Lake Okeechobee shape file.
